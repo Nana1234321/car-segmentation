@@ -141,11 +141,16 @@ car-segmentation/
 
 ## Установка
 
+**ОБЯЗАТЕЛЬНО** скачайте веса модели с моего диска
+
+https://disk.360.yandex.ru/d/S-XzOaRo_uS7Ww
+
 ```bash
 pip install -r requirements.txt
 ```
 
 Зависимости: PyTorch ≥ 2.0, torchvision ≥ 0.15, OpenCV, Pillow, tqdm, pyyaml
+
 
 ---
 
