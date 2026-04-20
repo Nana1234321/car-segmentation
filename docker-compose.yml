@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  car-segmentation:
+    build: .
+    ports:
+      - "7860:7860"
+    volumes:
+      # Монтируем папку с весами модели
+      # Положи best_model.pth сюда: ./checkpoints/rgb/best_model.pth
+      - ./checkpoints:/app/checkpoints
+    environment:
+      - WEIGHTS_PATH=checkpoints/rgb/best_model.pth
+    # Раскомментируй если есть GPU:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    restart: unless-stopped

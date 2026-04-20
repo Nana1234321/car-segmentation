@@ -1,0 +1,9 @@
+checkpoints/*.pth
+checkpoints/rgb/
+checkpoints/lab/
+checkpoints/hsv/
+data/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env

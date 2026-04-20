@@ -1,0 +1,39 @@
+data:
+  root: "D:/ML_2/Carvana"
+  img_size: 512
+  val_ratio: 0.1
+  seed: 42
+
+train:
+  epochs: 20
+  batch_size: 8
+  val_batch_size: 16
+  lr_encoder: 1e-4
+  lr_decoder: 1e-3
+  weight_decay: 1e-4
+  num_workers: 6
+  device: "cuda"
+
+scheduler:
+  mode: "min"
+  factor: 0.5
+  patience: 3
+
+loss:
+  boundary_weight: 3.0
+
+# Multi-view consistency loss
+# consistency_weight: 0.0 = отключить, 0.1 = рекомендуется
+consistency:
+  weight: 0.1
+  view_weights: [0.5, 0.3, 0.2]   # rgb, lab, hsv
+
+# Цветовые пространства для ансамбля и их веса при инференсе
+# Сумма weights должна быть равна 1.0
+# RGB получает больший вес т.к. энкодер предобучен на ImageNet (RGB)
+ensemble:
+  colorspaces: ["rgb", "lab", "hsv"]
+  weights:     [0.5,   0.3,   0.2]
+
+paths:
+  checkpoints: "checkpoints"
